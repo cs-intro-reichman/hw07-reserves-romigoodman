@@ -10,21 +10,42 @@ public class SpellChecker {
 		System.out.println(correction);
 	}
 
-	public static String tail(String str) {
-		// Your code goes here
-	}
+	public static int levenshtein(String word1, String word2) 
+	{
+		String lowercase1 = word1.toLowerCase();
+		String lowercase2 = word2.toLowerCase();
 
-	public static int levenshtein(String word1, String word2) {
-		// Your code goes here
+		if (lowercase2.length() == 0) {
+			return lowercase1.length(); // If word2 is empty, return length of word1
+		} else if (lowercase1.length() == 0) {
+			return lowercase2.length(); // If word1 is empty, return length of word2
+		}
+
+		//Compare the first characters
+   		 if (lowercase1.charAt(0) == lowercase2.charAt(0)) {
+        // If first characters are the same, continue with the rest of the strings
+		return levenshtein(lowercase1.substring(1), lowercase2.substring(1));}
+
+		else {
+        // If first characters are different, consider three operations (insertion, deletion, substitution)
+		int substitutionNum = levenshtein(lowercase1.substring(1), lowercase2.substring(1));
+        int insertionNum = levenshtein(lowercase1, lowercase2.substring(1));
+        int deletionNum = levenshtein(lowercase1.substring(1), lowercase2);
+
+		 // Return 1 + minimum cost among the three operations
+		return 1+Math.min(substitutionNum, Math.min(deletionNum, insertionNum));
+	}
 	}
 
 	public static String[] readDictionary(String fileName) {
 		String[] dictionary = new String[3000];
-
 		In in = new In(fileName);
-
-		// Your code here
-
+		for (int i=0; i<dictionary.length; i++)
+		{
+			{
+			dictionary[i]=in.readLine(); 
+			}
+		}
 		return dictionary;
 	}
 
@@ -33,3 +54,12 @@ public class SpellChecker {
 	}
 
 }
+
+	public static char getHead(String word) 
+	{
+		if (word.isEmpty()) {
+		throw new IllegalArgumentException("Empty string has no head");
+		}
+		return word.charAt(0);
+	}
+
