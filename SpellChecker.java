@@ -50,7 +50,7 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		String closestWord = "";
+		String closestWord = word;
     
 		for (int i = 0; i < dictionary.length; i++) 
 		{
@@ -62,10 +62,6 @@ public class SpellChecker {
                 closestWord = dictionaryWord;
             }
         
-    		 else 
-			{
-            closestWord = word;
-       		}
 		}
 		return closestWord;
 		
