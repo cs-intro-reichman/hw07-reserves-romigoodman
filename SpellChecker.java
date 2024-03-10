@@ -22,7 +22,7 @@ public class SpellChecker {
 		}
 
 		//Compare the first characters
-   		 if (getHead(lowercase1) == getHead(lowercase2))) {
+   		 if (getHead(lowercase1) == getHead(lowercase2)) {
         // If first characters are the same, continue with the rest of the strings
 		return levenshtein(lowercase1.substring(1), lowercase2.substring(1));}
 
@@ -66,8 +66,9 @@ public class SpellChecker {
 			{
             closestWord = word;
        		}
-		return closestWord;
 		}
+		return closestWord;
+		
     }
 
 
@@ -78,4 +79,5 @@ public class SpellChecker {
 		}
 		return word.charAt(0);
 	}
+}
 
