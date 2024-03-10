@@ -29,7 +29,7 @@ public class HashTagTokenizer {
 		for (int i=0; i<dictionary.length; i++) //(String WordInDictionary : dictionary) 
 		{
 			String wordInDictionary = dictionary[i];
-			if ( wordInDictionary.equals(dictionary))
+			if ( wordInDictionary.equals(word))
 			{
 				return true;
 			}
@@ -37,22 +37,8 @@ public class HashTagTokenizer {
         
         return false;
 		
-		// String myInput = word;
-		// boolean isPresent = false;
-
-		// //
-		// {
-		// if (myInput==dictionary[i])
-		// 	{
-		// 		isPresent=true;
-		// 	}
-		// else 
-		// 	{
-		// 	isPresent=false;
-		// 	}
-		// }
-		// return isPresent;
 	}
+	
 	public static void breakHashTag(String hashtag, String[] dictionary) 
 	{
 		// Base case: do nothing (return) if hashtag is an empty string.
