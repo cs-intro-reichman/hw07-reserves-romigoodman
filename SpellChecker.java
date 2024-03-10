@@ -22,7 +22,7 @@ public class SpellChecker {
 		}
 
 		//Compare the first characters
-   		 if (lowercase1.charAt(0) == lowercase2.charAt(0)) {
+   		 if (getHead(lowercase1) == getHead(lowercase2))) {
         // If first characters are the same, continue with the rest of the strings
 		return levenshtein(lowercase1.substring(1), lowercase2.substring(1));}
 
@@ -50,10 +50,26 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		// Your code goes here
-	}
+		String closestWord = "";
+    
+		for (int i = 0; i < dictionary.length; i++) 
+		{
+			String dictionaryWord = dictionary[i];
+            int distance = levenshtein(word, dictionaryWord);
 
-}
+            if (distance < threshold) 
+			{
+                closestWord = dictionaryWord;
+            }
+        
+    		 else 
+			{
+            closestWord = word;
+       		}
+		return closestWord;
+		}
+    }
+
 
 	public static char getHead(String word) 
 	{
