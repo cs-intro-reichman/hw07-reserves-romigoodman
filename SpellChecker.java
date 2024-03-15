@@ -54,6 +54,7 @@ public class SpellChecker {
     
 		for (int i = 0; i < dictionary.length; i++) 
 		{
+
 			String dictionaryWord = dictionary[i];
             int distance = levenshtein(word, dictionaryWord);
 
@@ -66,7 +67,8 @@ public class SpellChecker {
 		return closestWord;
 		
     }
-
+	
+	
 
 	public static char getHead(String word) 
 	{
