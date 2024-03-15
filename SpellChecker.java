@@ -51,22 +51,38 @@ public class SpellChecker {
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		String closestWord = word;
-    
-		for (int i = 0; i < dictionary.length; i++) 
-		{
-
+		int minDistance = threshold + 1; // Initialize minDistance to threshold + 1
+	
+		for (int i = 0; i < dictionary.length; i++) {
 			String dictionaryWord = dictionary[i];
-            int distance = levenshtein(word, dictionaryWord);
-
-            if (distance < threshold) 
-			{
-                closestWord = dictionaryWord;
-            }
-        
+			int distance = levenshtein(word, dictionaryWord);
+	
+			if (distance < minDistance) { // Update closestWord and minDistance if a closer word is found
+				closestWord = dictionaryWord;
+				minDistance = distance;
+			}
 		}
+	
 		return closestWord;
+	}
+	
+		// 	String closestWord = word;
+    
+	// 	for (int i = 0; i < dictionary.length; i++) 
+	// 	{
+
+	// 		String dictionaryWord = dictionary[i];
+    //         int distance = levenshtein(word, dictionaryWord);
+
+    //         if (distance < threshold) 
+	// 		{
+    //             closestWord = dictionaryWord;
+    //         }
+        
+	// 	}
+	// 	return closestWord;
 		
-    }
+    // }
 	
 	
 
